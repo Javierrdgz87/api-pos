@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Catalogs\DepartmentController;
+use App\Http\Controllers\Catalogs\SupplierController;
 use App\Http\Controllers\Products\CategoryProductController;
 use App\Http\Controllers\Products\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -26,5 +27,6 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::resource('productos', ProductController::class);
         Route::resource('categorias', CategoryProductController::class);
         Route::resource('departamentos', DepartmentController::class);
+        Route::resource('proveedores', SupplierController::class);
     });
 });

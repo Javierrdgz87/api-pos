@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Suppliers extends Model
 {
     use HasFactory, SoftDeletes;
+    const STATUS_ACTIVE = 'AC';
     protected $table = 'suppliers';
     
     public $fillable = [
@@ -19,10 +20,14 @@ class Suppliers extends Model
         'rfc',
         'curp',
         'phone',
-        'cell_phone',
+        'mobile',
         'emails',
         'comments',
         'credit_limit',
         'credit_days'
+    ];
+
+    protected $attributes = [
+        'status_id' => self::STATUS_ACTIVE
     ];
 }

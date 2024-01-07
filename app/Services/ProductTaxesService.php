@@ -6,7 +6,7 @@ use Exception;
 
 class ProductTaxesService {
 
-    public static function updateOrCreateProductTax($id, $data) {
+    public static function updateOrCreateProductTax(int $id, array $data): array {
         $tax = ProductTax::where('product_id', $id);
         $tax->delete();
         $product = [];
@@ -20,5 +20,17 @@ class ProductTaxesService {
         }
         
         return $product;
+    }
+    
+    public static function calculateTaxes(float $cost): float
+    {
+        $result = ($cost / env('WITH_TAX'));
+        return number_format($result, 3, '.', ',');
+    }
+
+    public static function calculateUnitPriceTaxes(float $pricePerBox, float $factor): float
+    {
+        $result = ($pricePerBox / $factor);
+        return number_format($result, 3, '.', ',');
     }
 }

@@ -28,7 +28,6 @@ return new class extends Migration
             $table->decimal('credit_limit', 10, 4);
             $table->decimal('credit_available', 10, 4);
             $table->date('due_date');
-            $table->integer('credit_days');
             // other payment method
 
             $table->decimal('discount', 10, 6);

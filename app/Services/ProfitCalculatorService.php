@@ -29,4 +29,5 @@ class ProfitCalculatorService implements ProfitCalculatorInterface
             'wholesale_price' => $wholesale_price,
         ];
     }
+
 }

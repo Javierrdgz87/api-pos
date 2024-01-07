@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('product_prices', function (Blueprint $table) {
             $table->id();
+            $table->integer('price_number');
             $table->unsignedBigInteger('product_id');
-            $table->decimal('price', 12, 6);
-            $table->decimal('price_with_taxes', 12, 6);
-            $table->decimal('profit', 12, 6)->nullable();
+            $table->float('profit', 10, 6)->nullable();
+            $table->decimal('sale_price', 12, 6);
+            $table->decimal('sale_price_neto', 12, 6);
             $table->decimal('wholesale_price', 12, 6)->nullable();
             $table->timestamps();
             
